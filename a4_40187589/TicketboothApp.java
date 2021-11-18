@@ -6,7 +6,7 @@
 
 import java.util.Scanner;
 
-public class TicketboothDriver {
+public class TicketboothApp {
 	
 	static Scanner sc = new Scanner(System.in);
 	
@@ -45,7 +45,7 @@ public class TicketboothDriver {
 			booth3 = new Ticketbooth(tickets3, opus3),
 			booth4 = new Ticketbooth(tickets4, opus3);
 		
-		// array of all ticketbooths objects
+		// array of all ticketbooth objects
 		Ticketbooth[] booths = {booth0, booth1, booth2, booth3, booth4};
 		
 		int cardChoice; // choice of opus card
