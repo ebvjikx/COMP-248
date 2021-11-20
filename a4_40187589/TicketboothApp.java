@@ -2,6 +2,15 @@
 // Assignment 3
 // Written by: Ebrima Jikineh (40187589) & Lyna Taleb ()
 // For COMP 248 Section (R) – Fall 2021
+//
+// This program creates 5 tickets objects, 5 arrays of 
+// opus card objects and 5 ticketbooths objects containing
+// these tickets and opus card arrays. It asks user for a
+// choice from 0-9 for what they want to do from a printed
+// menu and depending on this choice carries out the 
+// respective actions. The user is constantly asked for a 
+// choice after each action until they choose to quit by
+// choosing 0.
 //-------------------------------------------------------
 
 import java.util.Scanner;
@@ -12,7 +21,7 @@ public class TicketboothApp {
 	
 	public static void main(String[] args) {
 		
-		// tickets 
+		// tickets objects
 		Tickets 
 			tickets0 = new Tickets(4, 4, 3, 2, 1), 
 			tickets1 = new Tickets(tickets0),
@@ -20,7 +29,7 @@ public class TicketboothApp {
 			tickets3 = new Tickets(6, 3, 1, 0, 1),
 			tickets4 = new Tickets(tickets3);
 		
-		// opus card arrays
+		// opus card object arrays
 		OPUSCard[] opus1 = new OPUSCard[2];
 		opus1[0] = new OPUSCard("STM", "L. Hill", 10, 2022);
 		opus1[1] = new OPUSCard("RTL", "H. Dada", 12, 2021);
@@ -37,7 +46,7 @@ public class TicketboothApp {
 		opus4[2] = new OPUSCard("STL", "B. Faiyaz", 9, 2022);
 		opus4[3] = new OPUSCard("RTL", "D. Caesar", 6, 2022);
 		
-		// ticketbooths
+		// ticketbooth object
 		Ticketbooth 
 			booth0 = new Ticketbooth(tickets0, opus1),
 			booth1 = new Ticketbooth(tickets1, opus2),
@@ -65,6 +74,7 @@ public class TicketboothApp {
 				quit = true;
 				break;
 			case 1:
+				// print content of all ticket booths
 				System.out.println("Content of each Ticketbooth:");
 				System.out.println("--------------------");
 				for (int i = 0; i < booths.length; i++) {
@@ -73,6 +83,7 @@ public class TicketboothApp {
 				}
 				break;
 			case 2:
+				// print content of chosen ticket booth
 				System.out.println("Which Ticketbooth would you like to see the content of? ");
 				boothChoice = getBoothChoice();
 				
@@ -80,6 +91,7 @@ public class TicketboothApp {
 				System.out.println(booths[boothChoice]);
 				break;
 			case 3:
+				// print ticket booths that have the same amount of ticket values
 				System.out.println("List of Ticketbooths with same amount of money: \n");
 				for (int i = 0; i < booths.length; i++) {
 					for (int j = i+1; j < booths.length; j++) {
@@ -90,6 +102,7 @@ public class TicketboothApp {
 				}
 				break;
 			case 4:
+				// print ticket booths that have the same number of each type of ticket
 				System.out.println("List of Ticketbooths with same Tickets amount: \n");
 				for (int i = 0; i < booths.length; i++) {
 					for (int j = i+1; j < booths.length; j++) {
@@ -100,6 +113,7 @@ public class TicketboothApp {
 				}
 				break;
 			case 5:
+				// print ticket booths that have the same amount of ticket values and same number of opus cards
 				System.out.println("List of Ticketbooths with same amount of money and same number of opus cards: \n");
 				for (int i = 0; i < booths.length; i++) {
 					for (int j = i+1; j < booths.length; j++) {
@@ -109,7 +123,8 @@ public class TicketboothApp {
 				}
 				break;
 			case 6:
-				System.out.println("Which Ticketbooth do you want to add a OPUS card to? ");
+				// add new opus card to chosen ticket booth 
+				System.out.println("Which Ticketbooth do you want to add an OPUS card to? ");
 				boothChoice = getBoothChoice();
 				OPUSCard newOpus = createNewOpus();
 				
@@ -117,6 +132,7 @@ public class TicketboothApp {
 						booths[boothChoice].addOpusCard(newOpus), boothChoice);
 				break;
 			case 7:
+				// remove opus card from chosen ticketbooth 
 				System.out.println("Which Ticketbooth do you want to remove a OPUS card from? ");
 				boothChoice = getBoothChoice();
 				String prompt = "Which card do you want to remove?";
@@ -128,6 +144,7 @@ public class TicketboothApp {
 				}
 				break;
 			case 8:
+				// update expiry month and year of chosen opus card
 				System.out.println("Which Ticketbooth do you want to update a OPUS card from? ");
 				boothChoice = getBoothChoice();
 				prompt = "Which card do you want to update?";
@@ -143,6 +160,7 @@ public class TicketboothApp {
 				}
 				break;
 			case 9:
+				// add tickets to chosen ticket booth 
 				System.out.println("Which Ticketbooth do you want to add tickets to? ");
 				boothChoice = getBoothChoice();
 				
@@ -228,7 +246,7 @@ public class TicketboothApp {
 	
 	private static OPUSCard createNewOpus() {
 		/* method to ask user for new opus card info
-		   and return new a opuscard object with this info */
+		   and return the new opuscard object with this info */
 		System.out.println("Please enter the following information");
 		System.out.print("  --> Type of OPUS card (STL, RTL, etc..): ");
 		String type = sc.next();
