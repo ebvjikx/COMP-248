@@ -48,9 +48,9 @@ public class Ticketbooth {
 
 	public int addOpusCard(OPUSCard opus) {
 		/* takes an OPUSCard object as a parameter
-		 * and adds it to the existing OPUSCard object array 
-		 * of the ticketbooth and returns the new length of 
-		 * the array */
+		 * and adds it to the new copy of existing OPUSCard 
+		 * object array of the ticketbooth and returns the 
+		 * length of the new array */
 		OPUSCard[] cards = new OPUSCard[opusCards.length + 1];
 		for (int i = 0; i < opusCards.length; i++) {
 			cards[i] = opusCards[i];
