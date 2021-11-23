@@ -12,13 +12,13 @@ public class Ticketbooth {
 	//default constructor
 	public Ticketbooth() {
 		tickets = new Tickets();
-		opusCards = new OPUSCard[0];
+		opusCards = null;
 	}
 	
 	//constructor 1
 	public Ticketbooth(Tickets ticket, OPUSCard[] cards) {
 		tickets = ticket;
-		opusCards = cards;
+		opusCards = (cards.length == 0) ? null: cards;
 	}
 	
 	public Boolean equalsTicketTotal(Ticketbooth obj) {
@@ -43,7 +43,10 @@ public class Ticketbooth {
 	public int numOpusCard() {
 		/* returns the number of opus cards 
 		 * in a ticketbooth */
-		return opusCards.length;
+		if (opusCards != null)
+			return opusCards.length;
+		else
+			return 0;
 	}
 
 	public int addOpusCard(OPUSCard opus) {
@@ -51,11 +54,17 @@ public class Ticketbooth {
 		 * and adds it to the new copy of existing OPUSCard 
 		 * object array of the ticketbooth and returns the 
 		 * length of the new array */
-		OPUSCard[] cards = new OPUSCard[opusCards.length + 1];
-		for (int i = 0; i < opusCards.length; i++) {
-			cards[i] = opusCards[i];
+		OPUSCard[] cards = new OPUSCard[1];
+		if (opusCards == null) {
+			cards[0] = opus;
 		}
-		cards[opusCards.length] = opus;
+		else {
+			cards = new OPUSCard[opusCards.length + 1];
+			for (int i = 0; i < opusCards.length; i++) {
+				cards[i] = opusCards[i];
+			}
+			cards[opusCards.length] = opus;
+		}
 		opusCards = cards;
 		
 		return opusCards.length;
@@ -66,7 +75,7 @@ public class Ticketbooth {
 		 * the OPUSCard at that index in the OPUSCard object array
 		 * of the ticketbooth and returns true if removed successfully 
 		 * and false otherwise */
-		if (opusCards.length == 0)
+		if (opusCards == null)
 			return false;
 		else {
 			OPUSCard[] cards = new OPUSCard[opusCards.length - 1];
@@ -106,7 +115,7 @@ public class Ticketbooth {
 		 * one passed as a parameter and returns true if they 
 		 * are equal and false otherwise */
 		return ((tickets.ticketsTotal() == obj.tickets.ticketsTotal()) && 
-				opusCards.length == obj.opusCards.length);	
+				numOpusCard() == obj.numOpusCard());	
 	}
 	
 	public String toString() {
@@ -114,10 +123,12 @@ public class Ticketbooth {
 		 * of tickets in the ticketbooth and also the information
 		 * of each OPUSCard object in the ticketbooth */
 		String opus = "";
-		if (opusCards.length == 0)
+		if (opusCards == null)
 			opus = "\nNo OPUS cards";
+		else {
 		for (int i = 0; i < opusCards.length; i++)
 			opus += "\n" + opusCards[i].toString();
+		}
 		
 		return tickets.toString() + opus + "\n";		
 	}
