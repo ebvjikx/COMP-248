@@ -1,7 +1,7 @@
 //-------------------------------------------------------
-// Assignment 3
+// Assignment 4
 // Written by: Ebrima Jikineh (40187589) & Lyna Taleb ()
-// For COMP 248 Section (R) – Fall 2021
+// For COMP 248 Section (R) - Fall 2021
 //
 // This program creates 5 tickets objects, 5 arrays of 
 // opus card objects and 5 ticketbooths objects containing
