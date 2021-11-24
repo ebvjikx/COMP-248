@@ -16,75 +16,71 @@ public class OPUSCard {
 	
 	// default constructor
 	public OPUSCard() {
-		cardType = "";
-		cardHolder = "";
-		expiryMonth = 0;
-		expiryYear = 0;
 	}
 	
 	// constructor 1
 	public OPUSCard(String type, String name, int month, int year) {
-		cardType = type;
-		cardHolder = name;
-		expiryMonth = (month < 1 || month > 12) ? 0 : month;
-		expiryYear = year;
+		this.cardType = type;
+		this.cardHolder = name;
+		this.expiryMonth = (month < 1 || month > 12) ? 0 : month;
+		this.expiryYear = year;
 	}
 	
 	// copy constructor
 	public OPUSCard(OPUSCard obj) {
-		cardType = obj.cardType;
-		cardHolder = obj.cardHolder;
-		expiryMonth = obj.expiryMonth;
-		expiryYear = obj.expiryYear;
+		this.cardType = obj.cardType;
+		this.cardHolder = obj.cardHolder;
+		this.expiryMonth = obj.expiryMonth;
+		this.expiryYear = obj.expiryYear;
 	}
 	
 	// accessor methods
 	public String getType() {
 		// returns type of opus card
-		return cardType;
+		return this.cardType;
 	}
 	
 	public String getName() {
 		// return owner name on opus card
-		return cardHolder;
+		return this.cardHolder;
 	}
 	
 	public int getExpMonth() {
 		// return expiry month of opus card
-		return expiryMonth;
+		return this.expiryMonth;
 	}
 	
 	public int getExpYear() {
 		// return expiry year of opus card
-		return expiryYear;
+		return this.expiryYear;
 	}
 	
 	// mutator methods
 	public void setExpMonth(int month) {
 		/* set expiry month to the integer passed as a param
 		 * and sets it to 0 if integer not between 1 and 12 */
-		expiryMonth = (month < 1 || month > 12) ? 0 : month;
+		this.expiryMonth = (month < 1 || month > 12) ? 0 : month;
 	}
 	
 	public void setExpYear(int year) {
 		// set expiry year to the integer passed as a param 
-		expiryYear = year;
+		this.expiryYear = year;
 	}
 	 
 	public String toString() {
 		/* returns a formatted string with the 
 		 * information of the OPUSCard object */
 		return  String.format("%s - %s - %s/%s",
-				cardType, cardHolder, (expiryMonth < 10) ?  "0" + expiryMonth : expiryMonth, expiryYear);
+				this.cardType, this.cardHolder, (this.expiryMonth < 10) ?  "0" + this.expiryMonth : this.expiryMonth, this.expiryYear);
 	}
 	
 	public Boolean equals(OPUSCard obj) {
 		/* checks if the the current OPUSCard object 
 		 * has the same name, same type, same expiry month and year
 		 * as the object passed as a param */
-		return ((cardType.equals(obj.cardType)) && 
-				(cardHolder.equals(obj.cardHolder)) && 
-				(expiryMonth == obj.expiryMonth) && 
-				(expiryYear == obj.expiryYear));
+		return ((this.cardType.equals(obj.cardType)) && 
+				(this.cardHolder.equals(obj.cardHolder)) && 
+				(this.expiryMonth == obj.expiryMonth) && 
+				(this.expiryYear == obj.expiryYear));
 	}
 }

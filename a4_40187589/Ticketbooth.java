@@ -11,40 +11,38 @@ public class Ticketbooth {
 	
 	//default constructor
 	public Ticketbooth() {
-		tickets = new Tickets();
-		opusCards = null;
 	}
 	
 	//constructor 1
 	public Ticketbooth(Tickets ticket, OPUSCard[] cards) {
-		tickets = ticket;
-		opusCards = (cards.length == 0) ? null: cards;
+		this.tickets = ticket;
+		this.opusCards = (cards.length == 0) ? null : cards;
 	}
 	
 	public Boolean equalsTicketTotal(Ticketbooth obj) {
 		/* checks if two ticketbooth objects have the same 
 		 * tickets' value and returns true if they do and false otherwise */
-		return tickets.ticketsTotal() == obj.tickets.ticketsTotal();
+		return this.tickets.ticketsTotal() == obj.tickets.ticketsTotal();
 	}
 
 	public Boolean equalsNumTicket(Ticketbooth obj) {
 		/* checks if two ticketbooth objects have the same 
 		 * number of each type of tickets and returns true 
 		 * if they do and false otherwise */
-		return tickets.equals(obj.tickets);
+		return this.tickets.equals(obj.tickets);
 	}
 
 	public double ticketsTotal() {
 		/* returns total value of tickets 
 		 * in a ticketbooth */
-		return tickets.ticketsTotal();
+		return this.tickets.ticketsTotal();
 	}
 
 	public int numOpusCard() {
 		/* returns the number of opus cards 
 		 * in a ticketbooth */
-		if (opusCards != null)
-			return opusCards.length;
+		if (this.opusCards != null)
+			return this.opusCards.length;
 		else
 			return 0;
 	}
@@ -55,19 +53,19 @@ public class Ticketbooth {
 		 * object array of the ticketbooth and returns the 
 		 * length of the new array */
 		OPUSCard[] cards = new OPUSCard[1];
-		if (opusCards == null) {
+		if (this.opusCards == null) {
 			cards[0] = opus;
 		}
 		else {
-			cards = new OPUSCard[opusCards.length + 1];
-			for (int i = 0; i < opusCards.length; i++) {
-				cards[i] = opusCards[i];
+			cards = new OPUSCard[this.opusCards.length + 1];
+			for (int i = 0; i < this.opusCards.length; i++) {
+				cards[i] = this.opusCards[i];
 			}
-			cards[opusCards.length] = opus;
+			cards[this.opusCards.length] = opus;
 		}
-		opusCards = cards;
+		this.opusCards = cards;
 		
-		return opusCards.length;
+		return this.opusCards.length;
 	}
 
 	public Boolean remOpusCard(int card) {
@@ -75,16 +73,16 @@ public class Ticketbooth {
 		 * the OPUSCard at that index in the OPUSCard object array
 		 * of the ticketbooth and returns true if removed successfully 
 		 * and false otherwise */
-		if (opusCards == null)
+		if (this.opusCards == null)
 			return false;
 		else {
-			OPUSCard[] cards = new OPUSCard[opusCards.length - 1];
+			OPUSCard[] cards = new OPUSCard[this.opusCards.length - 1];
 			for (int i = 0, k = 0; k < cards.length; i++) {
 				if (i != card) 
-					cards[k++] = opusCards[i];
+					cards[k++] = this.opusCards[i];
 			}
 			
-			opusCards = cards;
+			this.opusCards = cards;
 			return true;
 		}
 	}
@@ -94,8 +92,8 @@ public class Ticketbooth {
 		 * is the index of the card to be updated and month and 
 		 * year which is the new expiry month and year of 
 		 * that OPUSCard */
-		opusCards[card].setExpMonth(month);
-		opusCards[card].setExpYear(year); 
+		this.opusCards[card].setExpMonth(month);
+		this.opusCards[card].setExpYear(year); 
 	}
 	
 	public double addTickets(int reg, int junior, int senior, int daily, int weekly) {
@@ -103,9 +101,9 @@ public class Ticketbooth {
 		 * of each type of ticket and adds these numbers to the already existing
 		 * number of tickets in the ticketbooth and then returns the new total
 		 * tickets' value */
-		tickets.addTickets(reg, junior, senior, daily, weekly);
+		this.tickets.addTickets(reg, junior, senior, daily, weekly);
 		
-		return tickets.ticketsTotal();
+		return this.tickets.ticketsTotal();
 	}
 	
 	public boolean equals(Ticketbooth obj) {
@@ -114,8 +112,8 @@ public class Ticketbooth {
 		 * opus cards of the current ticketbooth object to the 
 		 * one passed as a parameter and returns true if they 
 		 * are equal and false otherwise */
-		return ((tickets.ticketsTotal() == obj.tickets.ticketsTotal()) && 
-				numOpusCard() == obj.numOpusCard());	
+		return ((this.tickets.ticketsTotal() == obj.tickets.ticketsTotal()) && 
+				this.numOpusCard() == obj.numOpusCard());	
 	}
 	
 	public String toString() {
@@ -123,19 +121,19 @@ public class Ticketbooth {
 		 * of tickets in the ticketbooth and also the information
 		 * of each OPUSCard object in the ticketbooth */
 		String opus = "";
-		if (opusCards == null)
+		if (this.opusCards == null)
 			opus = "\nNo OPUS cards";
 		else {
-		for (int i = 0; i < opusCards.length; i++)
-			opus += "\n" + opusCards[i].toString();
+		for (int i = 0; i < this.opusCards.length; i++)
+			opus += "\n" + this.opusCards[i].toString();
 		}
 		
-		return tickets.toString() + opus + "\n";		
+		return this.tickets.toString() + opus + "\n";		
 	}
 	
 	public String ticketsInfo() {
 		/* returns only a string of the breakdown 
 		 * of tickets in the ticketbooth */
-		return tickets.toString();
+		return this.tickets.toString();
 	}
 }
