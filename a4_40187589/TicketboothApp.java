@@ -181,7 +181,7 @@ public class TicketboothApp {
 		System.out.println("Thank you for using Concordia's Fall Geek Ticketbooth Application");
 	}
 	
-	private static int getChoice() {
+	public static int getChoice() {
 		/* method to print menu and get choice from user
 		   then return choice */
 		int choice = 0;
@@ -207,7 +207,7 @@ public class TicketboothApp {
 		return choice;
 	}
 	
-	private static int getBoothChoice() {
+	public static int getBoothChoice() {
 		/* method to ask user for choice of booth
 		   then return choice */
 		int boothChoice = 0;
@@ -221,7 +221,7 @@ public class TicketboothApp {
 		return boothChoice;
 	}
 	
-	private static int getCardChoice(int boothChoice, Ticketbooth[] booths, String prompt) {
+	public static int getCardChoice(int boothChoice, Ticketbooth[] booths, String prompt) {
 		/* method to ask user for choice of opus card
 		   then return choice */
 		switch (booths[boothChoice].numOpusCard()) {
@@ -244,7 +244,7 @@ public class TicketboothApp {
 		}
 	}
 	
-	private static OPUSCard createNewOpus() {
+	public static OPUSCard createNewOpus() {
 		/* method to ask user for new opus card info
 		   and return the new opuscard object with this info */
 		System.out.println("Please enter the following information");

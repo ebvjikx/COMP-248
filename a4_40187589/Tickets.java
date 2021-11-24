@@ -24,107 +24,102 @@ public class Tickets {
 	
 	//default constructor 
 	public Tickets() {
-		regularTickets = 0;
-		juniorTickets = 0;
-		seniorTickets = 0;
-		dailyTickets = 0;
-		weeklyTickets = 0;
 	}
 	
 	// constructor 1
 	public Tickets(int reg, int junior, int senior, int daily, int weekly) {
-		regularTickets = reg;
-		juniorTickets = junior; 
-		seniorTickets = senior;
-		dailyTickets = daily;
-		weeklyTickets = weekly;
+		this.regularTickets = reg;
+		this.juniorTickets = junior; 
+		this.seniorTickets = senior;
+		this.dailyTickets = daily;
+		this.weeklyTickets = weekly;
 	}
 	
 	// copy constructor
 	public Tickets(Tickets obj) {
-		regularTickets = obj.regularTickets;
-		juniorTickets = obj.juniorTickets; 
-		seniorTickets = obj.seniorTickets;
-		dailyTickets = obj.dailyTickets;
-		weeklyTickets = obj.weeklyTickets;
+		this.regularTickets = obj.regularTickets;
+		this.juniorTickets = obj.juniorTickets; 
+		this.seniorTickets = obj.seniorTickets;
+		this.dailyTickets = obj.dailyTickets;
+		this.weeklyTickets = obj.weeklyTickets;
 	}
 	
 	// accessor methods 
 	public int getRegTickets() {
 		// returns number of regular tickets 
-		return regularTickets;
+		return this.regularTickets;
 	}
 	
 	public int getJunTickets() {
 		// returns number of junior tickets
-		return juniorTickets;
+		return this.juniorTickets;
 	}
 	
 	public int getSenTickets() {
 		// returns number of senior tickets
-		return seniorTickets;
+		return this.seniorTickets;
 	}
 	
 	public int getDayTickets() {
 		// returns number of daily tickets
-		return dailyTickets;
+		return this.dailyTickets;
 	}
 	
 	public int getWeekTickets() {
 		// returns number of weekly tickets
-		return weeklyTickets;
+		return this.weeklyTickets;
 	}
 	
 	// mutator methods 
 	public void setRegTickets(int reg) {
 		/* sets number of regular tickets to integer
 		 * given as an argument */
-		regularTickets = reg;
+		this.regularTickets = reg;
 	}
 	
 	public void setJunTickets(int junior) {
 		/* sets number of junior tickets to integer
 		 * given as an argument */
-		juniorTickets = junior;
+		this.juniorTickets = junior;
 	}
 	
 	public void setSenTickets(int senior) {
 		/* sets number of senior tickets to integer
 		 * given as an argument */
-		seniorTickets = senior;
+		this.seniorTickets = senior;
 	}
 	
 	public void setDayTickets(int daily) {
 		/* sets number of daily tickets to integer
 		 * given as an argument */
-		dailyTickets = daily;
+		this.dailyTickets = daily;
 	}
 	
 	public void setWeekTickets(int weekly) {
 		/* sets number of weekly tickets to integer
 		 * given as an argument */
-		weeklyTickets = weekly;
+		this.weeklyTickets = weekly;
 	}
 	
 	public void addTickets(int reg, int junior, int senior, int daily, int weekly) {
 		/* takes 5 integers as parameters, which are the number of tickets
 		 * of each type of ticket and adds these numbers to the already existing
 		 * number of tickets */
-		regularTickets += reg;
-		juniorTickets += junior; 
-		seniorTickets += senior;
-		dailyTickets += daily;
-		weeklyTickets += weekly;
+		this.regularTickets += reg;
+		this.juniorTickets += junior; 
+		this.seniorTickets += senior;
+		this.dailyTickets += daily;
+		this.weeklyTickets += weekly;
 	}
 	
 	public double ticketsTotal() {
 		/* returns the total value of all the tickets
 		 * in the ticket object */
-		return (regularPrice * regularTickets) +
-				(juniorPrice * juniorTickets) +
-				(seniorPrice * seniorTickets) +
-				(dailyPrice * dailyTickets) +
-				(weeklyPrice * weeklyTickets);
+		return (regularPrice * this.regularTickets) +
+				(juniorPrice * this.juniorTickets) +
+				(seniorPrice * this.seniorTickets) +
+				(dailyPrice * this.dailyTickets) +
+				(weeklyPrice * this.weeklyTickets);
 	}
 	 
 	public String toString() {
@@ -132,21 +127,21 @@ public class Tickets {
 		 * breakdown of all the type of tickets in
 		 * the ticket object*/
 		return  String.format("%d Regular($%.2f), %d Junior($%.2f), %d Senior($%.2f), %d Daily($%.2f), %d Weekly($%.2f)", 
-				regularTickets, regularPrice,
-				juniorTickets, juniorPrice,
-				seniorTickets, seniorPrice,
-				dailyTickets, dailyPrice,
-				weeklyTickets, weeklyPrice);
+				this.regularTickets, regularPrice,
+				this.juniorTickets, juniorPrice,
+				this.seniorTickets, seniorPrice,
+				this.dailyTickets, dailyPrice,
+				this.weeklyTickets, weeklyPrice);
 	}
 	
 	public boolean equals(Tickets obj) {
 		/* checks if the current ticket object has
 		 * the same number of each type of ticket
 		 * as the tickets object given as argument */
-		return ((regularTickets == obj.regularTickets) &&
-		(juniorTickets == obj.juniorTickets) &&
-		(seniorTickets == obj.seniorTickets) &&
-		(dailyTickets == obj.dailyTickets) &&
-		(weeklyTickets == obj.weeklyTickets));
+		return ((this.regularTickets == obj.regularTickets) &&
+		(this.juniorTickets == obj.juniorTickets) &&
+		(this.seniorTickets == obj.seniorTickets) &&
+		(this.dailyTickets == obj.dailyTickets) &&
+		(this.weeklyTickets == obj.weeklyTickets));
 	}
 }
