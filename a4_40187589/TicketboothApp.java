@@ -1,6 +1,6 @@
 //-------------------------------------------------------
 // Assignment 4
-// Written by: Ebrima Jikineh (40187589) & Lyna Taleb ()
+// Written by: Ebrima Jikineh (40187589)
 // For COMP 248 Section (R) – Fall 2021
 //
 // This program creates 5 tickets objects, 5 arrays of 
@@ -84,7 +84,7 @@ public class TicketboothApp {
 				break;
 			case 2:
 				// print content of chosen ticket booth
-				System.out.println("Which Ticketbooth would you like to see the content of? ");
+				System.out.println("Which Ticketbooth would you like to see the content of?");
 				boothChoice = getBoothChoice();
 				
 				System.out.printf("Ticketbooth #%d:%n", boothChoice);
@@ -124,7 +124,7 @@ public class TicketboothApp {
 				break;
 			case 6:
 				// add new opus card to chosen ticket booth 
-				System.out.println("Which Ticketbooth do you want to add an OPUS card to? ");
+				System.out.println("Which Ticketbooth do you want to add an OPUS card to?");
 				boothChoice = getBoothChoice();
 				OPUSCard newOpus = createNewOpus();
 				
@@ -133,7 +133,7 @@ public class TicketboothApp {
 				break;
 			case 7:
 				// remove opus card from chosen ticketbooth 
-				System.out.println("Which Ticketbooth do you want to remove a OPUS card from? ");
+				System.out.println("Which Ticketbooth do you want to remove a OPUS card from?");
 				boothChoice = getBoothChoice();
 				String prompt = "Which card do you want to remove?";
 				cardChoice = getCardChoice(boothChoice, booths, prompt);
@@ -145,7 +145,7 @@ public class TicketboothApp {
 				break;
 			case 8:
 				// update expiry month and year of chosen opus card
-				System.out.println("Which Ticketbooth do you want to update a OPUS card from? ");
+				System.out.println("Which Ticketbooth do you want to update a OPUS card from?");
 				boothChoice = getBoothChoice();
 				prompt = "Which card do you want to update?";
 				cardChoice = getCardChoice(boothChoice, booths, prompt);
@@ -161,7 +161,7 @@ public class TicketboothApp {
 				break;
 			case 9:
 				// add tickets to chosen ticket booth 
-				System.out.println("Which Ticketbooth do you want to add tickets to? ");
+				System.out.println("Which Ticketbooth do you want to add tickets to?");
 				boothChoice = getBoothChoice();
 				
 				System.out.println("How many regular, junior, senior, daily and weekly tickets do you want to add?");
