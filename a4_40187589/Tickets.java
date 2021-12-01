@@ -1,6 +1,6 @@
 //-------------------------------------------------------
 // Assignment 4
-// Written by: Ebrima Jikineh (40187589) & Lyna Taleb ()
+// Written by: Ebrima Jikineh (40187589)
 // For COMP 248 Section (R) – Fall 2021
 //-------------------------------------------------------
 
